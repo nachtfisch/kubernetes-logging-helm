@@ -3,9 +3,9 @@
 
 This helm chart deploys a scalable containerized logging stack with the main purpose of enabling log observability for kubernetes applications. The design supports both local development use cases such as minikube deployments up to a scaled production scenarios. The latter scenarios leverage kafka message broker, completely decoupling in this way,  the log generation and log indexing functions. 
 
-The helm chart supports elasticsearch in various configurations starting from a single node setup usable for local development, to a scaled multi nodes elasticsearch deployment battle proven in production scenarios. In the latter case there are 3 types of nodes (coordination, data and master) where each of those can be both horizontally and vertically scaled depending on the load and shards replication demands. 
+The helm chart supports opensearch in various configurations starting from a single node setup usable for local development, to a scaled multi nodes opensearch deployment battle proven in production scenarios. In the latter case there are 3 types of nodes (coordination, data and master) where each of those can be both horizontally and vertically scaled depending on the load and shards replication demands. 
 
-Finally this helm chart provides index templates management in elasticsearch and index pattern management in kibana. An initial predefined set of dashboards is also provided for illustration purposes.
+Finally this helm chart provides index templates management in opensearch and index pattern management in kibana. An initial predefined set of dashboards is also provided for illustration purposes.
 
 ![Kubernetes Logging Stack](images/k8s-logging-stack.jpg)
 
@@ -14,7 +14,7 @@ Here is a [setup example](https://github.com/nickytd/kubernetes-logging-helm/tre
 [Single node setup example](https://github.com/nickytd/kubernetes-logging-helm/tree/master/examples/k8s-logging-minikube-values.yaml)
 
 Provisioned components:
- 1. Single Elasticsearch type node
+ 1. Single opensearch type node
  1. Fluent-Bit instance per kubernetes node
  1. (optional elastic-exporter)
 
