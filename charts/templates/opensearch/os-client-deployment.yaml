@@ -41,12 +41,12 @@ spec:
         readinessProbe:
           exec:
             command: ["sh", "-c", "/livenessProbe.sh"]
-          initialDelaySeconds: 30          
+          initialDelaySeconds: 60          
         livenessProbe:
           tcpSocket:
             port: transport
-          initialDelaySeconds: 60
-          periodSeconds: 15          
+          initialDelaySeconds: 120
+          periodSeconds: 10     
         ports:
         - containerPort: 9300
           name: transport
