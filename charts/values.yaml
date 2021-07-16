@@ -39,10 +39,10 @@ opendistro:
     viewer_role: ""
     tenant_role: ""
 
-#Opensearch Curator job configuration
-es_curator:
-  image: "nickytd/es-curator"
-  imageTag: "5.8"
+#Opensearch Curator job configuration. It is a build of es-curator 5.8.4 /APL 2.0 license/ with a modified es version check 
+os_curator:
+  image: "nickytd/os-curator"
+  imageTag: "5.8.4"
 
 #Init container configuration. Used for multiple application startup checks
 init_container:

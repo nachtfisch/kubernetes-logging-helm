@@ -9,7 +9,7 @@ _meta:
 # Define your internal users here
 
 {{ .Values.opensearch.user }}:
-  hash: "$$opensearch_PASSWORD_HASH"
+  hash: "$$opensearch-PASSWORD_HASH"
   reserved: true
   backend_roles:
   - "administrator"

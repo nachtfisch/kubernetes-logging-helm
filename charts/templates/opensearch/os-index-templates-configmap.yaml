@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-index-templates
 data:
-{{- range $path, $bytes := .Files.Glob "indices-templates/*.json" }}
+{{- range $path, $bytes := .Files.Glob "index-templates/*.json" }}
 {{- $name := base (dir $path) }}  
 {{ base $path | indent 2}}: |-
 {{ (tpl ($.Files.Get $path) $)| indent 4 }}

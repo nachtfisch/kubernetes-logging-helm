@@ -27,7 +27,7 @@ data:
     
     chmod +w /tmp/internal_users.yml
 
-    sed -i -e "s|\$\$opensearch_PASSWORD_HASH|$os_pass_hash|" /tmp/internal_users.yml
+    sed -i -e "s|\$\$opensearch-PASSWORD_HASH|$os_pass_hash|" /tmp/internal_users.yml
     sed -i -e "s|\$\$opensearch-dashboards_PASSWORD_HASH|$ki_pass_hash|" /tmp/internal_users.yml
     sed -i -e "s|\$\$opensearch-dashboards_READONLY_PASSWORD_HASH|$ki_ro_pass_hash|" /tmp/internal_users.yml
     sed -i -e "s|\$\$opensearch-dashboards_DEVELOPER_PASSWORD_HASH|$ki_dev_pass_hash|" /tmp/internal_users.yml
@@ -51,4 +51,5 @@ data:
       -key /usr/share/opensearch/config/admin-key.pem \
       -f /tmp/internal_users.yml \
       -h $os_node -sniff -nhnv -icl
+
 {{- end }}      

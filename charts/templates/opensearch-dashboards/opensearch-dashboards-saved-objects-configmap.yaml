@@ -4,4 +4,4 @@ metadata:
   name: {{ .Release.Name }}-opensearch-dashboards-saved-objects
   labels: {{ include "logging.labels" . | indent 4 }}
 data:
-{{- (.Files.Glob "opensearch-dashboards-saved-objects/*.ndjson").AsConfig | nindent 2 }}
+{{- (.Files.Glob "saved-objects/*.ndjson").AsConfig | nindent 2 }}

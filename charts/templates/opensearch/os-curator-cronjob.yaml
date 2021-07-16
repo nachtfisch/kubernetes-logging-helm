@@ -35,7 +35,7 @@ spec:
               name: init
           containers:
           - name: es-curator
-            image: {{ .Values.es_curator.image }}:{{ .Values.es_curator.imageTag }}
+            image: {{ .Values.os_curator.image }}:{{ .Values.os_curator.imageTag }}
             env:
             - name: os_host
               value: {{ include "os_url" . }}

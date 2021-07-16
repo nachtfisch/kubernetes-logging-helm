@@ -26,7 +26,7 @@ data:
           unit: days
           unit_count: {{ default 1 .Values.opensearch.retention_days }}
           exclude:
-        - filtertype: opensearch-dashboards
+        - filtertype: kibana
           exclude: True
         - filtertype: pattern
           kind: prefix

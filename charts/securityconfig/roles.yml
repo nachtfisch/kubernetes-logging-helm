@@ -43,7 +43,7 @@ opensearch-dashboards_viewer:
     - index_patterns:  
         - "*"
       allowed_actions:
-        - "read"
+        - "read"        
         - "search"
         - "get"
         - "manage"
@@ -52,11 +52,11 @@ opensearch-dashboards_viewer:
   - tenant_patterns:
       - "Global*"
     allowed_actions:
-      - "opensearch-dashboards_all_read"
+      - "kibana_all_read"
   - tenant_patterns:
       - "Developer"
     allowed_actions:
-      - "opensearch-dashboards_all_read"    
+      - "kibana_all_read"    
 
 opensearch-dashboards_developer:
   reserved: false
@@ -67,21 +67,24 @@ opensearch-dashboards_developer:
     - index_patterns:  
         - "*"
       allowed_actions:
-        - "read"
-        - "search"
+        - "indices_all"
         - "get"
-        - "manage"
+        - "read"
+        - "write"
+        - "delete"
+        - "crud"
+        - "search"
         - "suggest"
   tenant_permissions:
   - tenant_patterns:
-      - "Global*"
+      - "Global"
     allowed_actions:
-      - "opensearch-dashboards_all_read"  
+      - "kibana_all_read"  
   - tenant_patterns:
       - "Developer"
     allowed_actions:
-      - "opensearch-dashboards_all_read"
-      - "opensearch-dashboards_all_write"       
+      - "kibana_all_read"
+      - "kibana_all_write"      
 
 opensearch-dashboards_admin:
   reserved: true
