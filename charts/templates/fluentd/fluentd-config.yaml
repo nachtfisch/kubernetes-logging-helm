@@ -7,7 +7,7 @@ metadata:
 data:
   fluent.conf: |-
      <system>
-       log_level debug
+       log_level info
      </system>
 
      @include 01-sources.conf
