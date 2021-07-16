@@ -51,7 +51,7 @@ spec:
         - "/bin/sh"
         - "-c"
         - |
-          fluent-gem install fluent-plugin-opensearch
+          fluent-gem install fluent-plugin-elasticsearch
           fluent-gem install fluent-plugin-prometheus
           fluent-gem install fluent-plugin-dedot_filter
           fluent-gem install fluent-plugin-rewrite-tag-filter          
