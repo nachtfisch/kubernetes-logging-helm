@@ -93,7 +93,7 @@ data:
       </match> 
 
       <match systemd**>
-        @type opensearch
+        @type elasticsearch
         host "#{ENV['FLUENT_opensearch_HOST']}"
         port "#{ENV['FLUENT_opensearch_PORT']}"
         user "#{ENV['FLUENT_opensearch_USER']}"
@@ -119,7 +119,7 @@ data:
       </match>   
 
       <match all**>
-        @type opensearch
+        @type elasticsearch
         host "#{ENV['FLUENT_opensearch_HOST']}"
         port "#{ENV['FLUENT_opensearch_PORT']}"
         user "#{ENV['FLUENT_opensearch_USER']}"
