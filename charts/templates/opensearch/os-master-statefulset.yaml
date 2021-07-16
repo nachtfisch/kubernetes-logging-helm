@@ -17,8 +17,8 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/opensearch/es-configmap.yaml") . | sha256sum }}
-        checksum/secret: {{ include (print $.Template.BasePath "/opensearch/es-certificates-sec.yaml") . | sha256sum }}
+        checksum/config: {{ include (print $.Template.BasePath "/opensearch/os-configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/opensearch/os-certificates-sec.yaml") . | sha256sum }}
       labels: {{ include "logging.selectorLabels" . | indent 8 }}
         type: master
         node: os
