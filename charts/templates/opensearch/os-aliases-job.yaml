@@ -37,7 +37,7 @@ spec:
         - mountPath: "/init"
           name: init
       containers: 
-      - name: es-curator
+      - name: os-curator
         image: {{ .Values.os_curator.image }}:{{ .Values.os_curator.imageTag }}
         env:
         - name: os_host
