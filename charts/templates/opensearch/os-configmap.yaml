@@ -20,17 +20,12 @@ data:
     appender.console.layout.type = PatternLayout
     appender.console.layout.pattern = [%d{ISO8601}][%-5p][%-25c{1.}] [%node_name]%marker %m%n
 
-    rootLogger.level = warn
+    rootLogger.level = info
     rootLogger.appenderRef.console.ref = console
-    
-    #logger.plugins.security.name = com.amazon.opendistroforopensearch.security
-    #logger.plugins.security.level = warn
 
-    #logger.saml.name = com.amazon.dlic.auth.http.saml.Token
-    #logger.saml.level = warn 
+    logger.discovery.name = org.opensearch.discovery
+    logger.discovery.level = debug
 
-    #logger.discovery.name = org.opensearch.discovery
-    #logger.discovery.level = warn
 
   opensearch.yml: |-
     cluster.name: {{ .Values.cluster_name | quote }}
@@ -55,15 +50,11 @@ data:
 
     cluster.initial_master_nodes:
     {{- if .Values.opensearch.single_node }}    
-    {{- range $k := (int .Values.data.replicas | until ) }}
-      - {{ $root.Release.Name }}-data-{{$k}}
-    {{- end }}
+      - {{ $root.Release.Name }}-data-0
     {{- else }}
-    {{- range $k := (int .Values.master.replicas | until ) }}
-      - {{ $root.Release.Name }}-master-{{$k}}
+      - {{ $root.Release.Name }}-master-0
     {{- end }}  
-    {{- end }}
-
+    
     node.master: ${NODE_MASTER:true}
     node.data: ${NODE_DATA:true}
     node.ingest: ${NODE_INGEST:true}
