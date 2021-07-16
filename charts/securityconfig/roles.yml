@@ -62,19 +62,18 @@ opensearch-dashboards_developer:
   reserved: false
   cluster_permissions:
     - "cluster_composite_ops_ro"
-    - "cluster:admin/opendistro/reports/*"    
+    - "cluster:admin/opendistro/reports/*"     
   index_permissions:
-    - index_patterns:  
+    - index_patterns:
         - "*"
       allowed_actions:
-        - "indices_all"
         - "get"
         - "read"
         - "write"
         - "delete"
         - "crud"
         - "search"
-        - "suggest"
+        - "suggest"        
   tenant_permissions:
   - tenant_patterns:
       - "Global"
