@@ -67,7 +67,7 @@ data:
   
   05-output.conf: |-
       <match nginx**>
-        @type opensearch
+        @type elasticsearch
         host "#{ENV['FLUENT_opensearch_HOST']}"
         port "#{ENV['FLUENT_opensearch_PORT']}"
         user "#{ENV['FLUENT_opensearch_USER']}"
