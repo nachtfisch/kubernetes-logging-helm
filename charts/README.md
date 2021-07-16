@@ -40,14 +40,14 @@ Kubernetes Logging stack helm chart parameters
 |  opendistro.saml.tenant_role | SAML role mapped to an elastic tenant role | "" |
 
 
-# ES Curator job configuration. 
+# Opensearch Curator job configuration. 
 
 Used for daily cron job operations. For example maintaining the index retention.
 
 |  Parameter | Description  | Default  |
 |---|---|---|
-|  es_curator.image | opensearch curator image registry | "nickytd/es-curator" |
-|  es_curator.imageTag | opensearch curator image tag | "5.8" |
+|  os_curator.image | opensearch curator image registry | "nickytd/os-curator" |
+|  os_curator.imageTag | opensearch curator image tag | "5.8.4" |
 
 # Init container configuration. 
 
