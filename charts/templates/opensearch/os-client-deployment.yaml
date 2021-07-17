@@ -38,15 +38,11 @@ spec:
       - name: main
         image: {{ .Values.opendistro.image }}:{{ .Values.opendistro.imageTag }}        
         resources: {{ toYaml .Values.client.resources | nindent 10 }}
-        readinessProbe:
+        startupProbe:
           exec:
             command: ["sh", "-c", "/livenessProbe.sh"]
-          initialDelaySeconds: 60          
-        livenessProbe:
-          tcpSocket:
-            port: transport
-          initialDelaySeconds: 120
-          periodSeconds: 10     
+          initialDelaySeconds: 30          
+          periodSeconds: 30
         ports:
         - containerPort: 9300
           name: transport

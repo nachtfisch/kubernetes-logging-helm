@@ -9,8 +9,7 @@ data:
   livenessProbe.sh: |-
     #!/bin/bash
       
-    curl -sSk -X GET -u$os_user:$os_pass $os_url
-
+    curl -sSk -u$os_user:$os_pass $os_url
 
   log4j2.properties: |-
     status = info
@@ -63,9 +62,9 @@ data:
 
     thread_pool.write.queue_size: 1000
     thread_pool.search.queue_size: 1000
-    thread_pool.bulk.queue_size: 1000
     thread_pool.get.queue_size: 1000
-    thread_pool.analyze.queue_size: 100
+    thread_pool.analyze.queue_size: 1000
+    thread_pool.listener.queue_size: 1000
 
     plugins.security.allow_unsafe_democertificates: true
     # plugins.security.allow_default_init_securityindex: true

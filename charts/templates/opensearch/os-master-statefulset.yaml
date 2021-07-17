@@ -38,6 +38,11 @@ spec:
       - name: main
         image: {{ .Values.opendistro.image }}:{{ .Values.opendistro.imageTag }}
         resources: {{ toYaml .Values.master.resources | nindent 10 }}
+        livenessProbe:
+          tcpSocket:
+            port: transport
+          initialDelaySeconds: 30
+          periodSeconds: 30
         ports:
         - containerPort: 9300
           name: transport
@@ -90,12 +95,7 @@ spec:
         - name: NODE_INGEST
           value: "false"
         - name: NODE_MASTER
-          value: "true"  
-        livenessProbe:
-          tcpSocket:
-            port: transport
-          initialDelaySeconds: 120
-          periodSeconds: 10
+          value: "true"
       volumes:
       - name: opensearch
         configMap:

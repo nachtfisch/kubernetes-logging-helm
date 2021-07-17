@@ -46,23 +46,25 @@ spec:
         image: {{ .Values.opendistro.image }}:{{ .Values.opendistro.imageTag }}
         resources: {{ toYaml .Values.data.resources | nindent 10 }}
         {{- if .Values.opensearch.single_node }}
-        readinessProbe:
+        startupProbe:
           exec:
             command: ["sh", "-c", "/livenessProbe.sh"]
-          initialDelaySeconds: 30          
-        {{- end }}      
+          initialDelaySeconds: 30
+        ports:
+        - containerPort: 9200
+          name: http
+        - containerPort: 9300
+          name: transport  
+        {{- else}}  
         livenessProbe:
           tcpSocket:
             port: transport
-          initialDelaySeconds: 120
-          periodSeconds: 10
-        ports:
-        {{- if .Values.opensearch.single_node }}
-        - containerPort: 9200
-          name: http
-        {{- end }}  
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        ports:  
         - containerPort: 9300
           name: transport
+        {{- end }}        
         volumeMounts:
         - name: os-data
           mountPath: /data
