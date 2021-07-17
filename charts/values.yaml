@@ -57,9 +57,9 @@ master:
   heap_size: "256m"
   resources:
     requests:
-      memory: "600Mi"
+      memory: "700Mi"
     limits:
-      memory: "600Mi"
+      memory: "700Mi"
   storage_class: ""
   priority_class: ""
   tolerations: []
@@ -162,8 +162,8 @@ fluentbit:
 
 fluentd:
   replicas: 1
-  image: "fluent/fluentd-kubernetes-daemonset"
-  imageTag: "v1.12-debian-kafka-1"
+  image: "nickytd/fluentd"
+  imageTag: "v1.13"
   resources:
     requests:
       memory: "100Mi"
