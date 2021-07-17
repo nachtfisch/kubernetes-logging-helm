@@ -80,12 +80,12 @@ data:
         reconnect_on_error true        
         <buffer>
           @type file
-          flush_interval 10s
+          flush_interval 5s
           retry_type exponential_backoff
-          chunk_limit_size 10m
-          flush_thread_count 8
+          chunk_limit_size 50m
+          flush_thread_count 16
           flush_at_shutdown true
-          queue_limit_length 16
+          queue_limit_length 32
           retry_max_interval 30
           retry_forever true
           path /fluentd/buffer/nginx
@@ -106,12 +106,12 @@ data:
         reconnect_on_error true        
         <buffer>
           @type file
-          flush_interval 10s
+          flush_interval 5s
           retry_type exponential_backoff
-          chunk_limit_size 10m
-          flush_thread_count 8
+          chunk_limit_size 50m
+          flush_thread_count 16
           flush_at_shutdown true
-          queue_limit_length 16
+          queue_limit_length 32
           retry_max_interval 30
           retry_forever true
           path /fluentd/buffer/systemd
@@ -132,12 +132,12 @@ data:
         reconnect_on_error true        
         <buffer>
           @type file
-          flush_interval 10s
+          flush_interval 5s
           retry_type exponential_backoff
-          chunk_limit_size 10m
-          flush_thread_count 8
+          chunk_limit_size 50m
+          flush_thread_count 16
           flush_at_shutdown true
-          queue_limit_length 16
+          queue_limit_length 32
           retry_max_interval 30
           retry_forever true
           path /fluentd/buffer/containers
