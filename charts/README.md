@@ -191,5 +191,5 @@ Kafka is used in scaled out scenario when a message broker is inserted on the lo
 | zookeeper.tolerarions | Zookeeper pod tolerations definition | [] |
 
 Example configuration:
- 1. [single node setup](https://github.com/nickytd/kubernetes-logging-helm/blob/747b8ba3e1504b34615bda85448bbb8e3e6c57d7/examples/single-node-setup.yaml)
- 2. [multi node ha setup](https://github.com/nickytd/kubernetes-logging-helm/blob/747b8ba3e1504b34615bda85448bbb8e3e6c57d7/examples/multi-node-ha-setup.yaml)
+ 1. [single node setup](https://github.com/nickytd/kubernetes-logging-helm/blob/ddc174e6fef71e375f1e27fa3ce5188a2831aeb5/examples/single-node-setup.yaml)
+ 2. [multi node ha setup](https://github.com/nickytd/kubernetes-logging-helm/blob/ddc174e6fef71e375f1e27fa3ce5188a2831aeb5/examples/multi-node-ha-setup.yaml)
