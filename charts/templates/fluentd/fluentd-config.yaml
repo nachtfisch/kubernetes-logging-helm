@@ -18,13 +18,12 @@ data:
      
   01-sources.conf: |-
     <source>
-      @type kafka_group
-      consumer_group fluentd
+      @type kafka
+      message_key log
       brokers  {{ include "kafkaBrokers" (dict "replicas" .Values.kafka.replicas "releaseName" $.Release.Name) }}
       format json
       topics containers
-      add_headers false
-      time_source record      
+      max_bytes 2000000000   
     </source>
 
   02-prometheus.conf: |-
@@ -143,5 +142,7 @@ data:
           path /fluentd/buffer/containers
         </buffer>
       </match> 
+
+
 
 {{ end }}    
