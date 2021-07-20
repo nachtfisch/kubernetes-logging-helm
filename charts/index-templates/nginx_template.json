@@ -1,4 +1,7 @@
-{
+{  
+   "index_patterns":[
+      "nginx-*"
+   ],
    "settings":{
       "index":{
          "codec":"best_compression",
@@ -128,8 +131,5 @@
             "type":"keyword"            
          }
       }
-   },
-   "index_patterns":[
-      "nginx-*"
-   ]
+   }
 }

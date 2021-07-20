@@ -2,6 +2,27 @@
    "index_patterns":[
       "containers-*"
    ],
+   "settings":{
+      "index":{
+         "mapping":{
+            "total_fields":{
+               "limit":10000
+            }
+         },
+         "max_docvalue_fields_search":200,
+         "number_of_shards":"{{ (.Values.data.replicas | int) }}",
+         "number_of_replicas":"{{ (sub (.Values.data.replicas | int) 1) }}",
+         "query":{
+            "default_field":[
+               "log",
+               "kubernetes.pod_name",
+               "kubernetes.namespace_name",               
+               "fields.*"
+            ]
+         },
+         "refresh_interval":"5s"
+      }
+   },
    "mappings":{
       "_source":{
          "enabled":true
@@ -72,28 +93,6 @@
                }               
             }
          }         
-      }
-   },
-   "order":1,
-   "settings":{
-      "index":{
-         "mapping":{
-            "total_fields":{
-               "limit":10000
-            }
-         },
-         "max_docvalue_fields_search":200,
-         "number_of_shards":"{{ (.Values.data.replicas | int) }}",
-         "number_of_replicas":"{{ (sub (.Values.data.replicas | int) 1) }}",
-         "query":{
-            "default_field":[
-               "log",
-               "kubernetes.pod_name",
-               "kubernetes.namespace_name",               
-               "fields.*"
-            ]
-         },
-         "refresh_interval":"5s"
       }
    }
 }
