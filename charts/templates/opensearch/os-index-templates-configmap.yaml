@@ -31,7 +31,7 @@ data:
       echo "uploading template $template"
 
       result=`curl -sk -w "%{http_code}" -X PUT -H "Content-Type: application/json" \
-        -u$os_user:$os_pass $os_url/_template/template -d @$file`
+        -u$os_user:$os_pass $os_url/_template/$template -d @$file`
 
       echo "$result"
     done
