@@ -85,7 +85,9 @@ spec:
           subPath: admin.pem  
         - name: certificates
           mountPath: /fluentd/ssl/admin-key.pem
-          subPath: admin-key.pem          
+          subPath: admin-key.pem    
+        - name: index-templates
+          mountPath: /fluentd/templates         
       terminationGracePeriodSeconds: 10
       volumes:
       - name: init
@@ -99,7 +101,10 @@ spec:
           name: {{ .Release.Name}}-fluentd          
       - name: certificates
         secret:
-          secretName: {{ .Release.Name }}-certificates    
+          secretName: {{ .Release.Name }}-certificates  
+      - name: index-templates
+        configMap:
+          name: {{ .Release.Name}}-index-templates      
       {{- with .Values.fluentd.affinity }}     
       affinity: {{ toYaml . | nindent 8 }}
       {{- end }}
