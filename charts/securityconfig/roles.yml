@@ -74,6 +74,7 @@ opensearch-dashboards_developer:
         - "crud"
         - "search"
         - "suggest"        
+        - "indices:admin/resolve/index"
   tenant_permissions:
   - tenant_patterns:
       - "Global"
