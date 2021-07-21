@@ -64,7 +64,7 @@ data:
           pattern="${i}"
         else
           pattern="${i}-*"
-        fi  
+        fi
         
         check=`curl -s -w "%{http_code}" -X GET -u$opensearch_dashboards_USER_:$opensearch_dashboards_PASSWORD_ \
           -H "securitytenant: ${tenant}" $opensearch_dashboards_URL/api/saved_objects/index-pattern/${pattern}`
@@ -82,8 +82,10 @@ data:
             echo "creating index pattern: ${tenant}/${pattern} failed"  
           fi    
 
-        else
+        elif [[ "$check" =~ "200" ]]; then
           echo "index pattern ${tenant}/${pattern} already exist"
+        else 
+           echo "checking index pattern ${tenant}/${pattern} returns: $check"
         fi
       
       done  
@@ -93,9 +95,11 @@ data:
         default="all"
       else
         default="${PATTERNS[0]}-*"
-      fi  
+      fi 
 
-      result=`curl -s -w "%{http_code}" -X PUT -u$opensearch_dashboards_USER_:$opensearch_dashboards_PASSWORD_ \
+      echo "setting default index pattern: $default" 
+
+      result=`curl -v -s -w "%{http_code}" -X PUT -u$opensearch_dashboards_USER_:$opensearch_dashboards_PASSWORD_ \
           $opensearch_dashboards_URL/api/saved_objects/config/${version} \
           -H "securitytenant: ${tenant}" -H "osd-xsrf: true" -H "Content-Type: application/json" \
           -d "{\"attributes\": {\"defaultIndex\": \"${default}\"}}"` 
