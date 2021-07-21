@@ -23,8 +23,13 @@ data:
     rootLogger.appenderRef.console.ref = console
 
     logger.discovery.name = org.opensearch.discovery
-    logger.discovery.level = debug
+    logger.discovery.level = info
 
+    logger.discovery.name = org.opensearch.bootsrap
+    logger.discovery.level = info
+
+    logger.discovery.name = org.opensearch.coordination
+    logger.discovery.level = info
 
   opensearch.yml: |-
     cluster.name: {{ .Values.cluster_name | quote }}
