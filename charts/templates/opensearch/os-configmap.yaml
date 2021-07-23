@@ -28,7 +28,7 @@ data:
     logger.discovery.name = org.opensearch.bootsrap
     logger.discovery.level = info
 
-    logger.discovery.name = org.opensearch.coordination
+    logger.discovery.name = org.opensearch.cluster.coordination
     logger.discovery.level = info
 
   opensearch.yml: |-
@@ -54,9 +54,13 @@ data:
 
     cluster.initial_master_nodes:
     {{- if .Values.opensearch.single_node }}    
-      - {{ $root.Release.Name }}-data-0
+    {{- range $k := (int .Values.data.replicas | until ) }}
+      - {{ $root.Release.Name }}-data-{{$k}}
+    {{- end }}
     {{- else }}
-      - {{ $root.Release.Name }}-master-0
+    {{- range $k := (int .Values.master.replicas | until ) }}
+      - {{ $root.Release.Name }}-master-{{$k}}
+    {{- end }}  
     {{- end }}  
     
     node.master: ${NODE_MASTER:true}
