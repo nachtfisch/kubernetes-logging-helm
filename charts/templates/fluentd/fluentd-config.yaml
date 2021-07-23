@@ -103,6 +103,7 @@ data:
           "nginx": "/fluentd/templates/nginx_template.json"
         }
         suppress_type_name true
+        type_name _doc
         tag nginx
       </match> 
 
@@ -136,6 +137,7 @@ data:
           "nginx": "/fluentd/templates/nginx_template.json"
         }
         suppress_type_name true
+        type_name _doc
         tag systemd
       </match>   
 
@@ -169,8 +171,8 @@ data:
           "nginx": "/fluentd/templates/nginx_template.json"
         }
         suppress_type_name true
+        type_name _doc
         tag containers
-        @log_level trace
       </match> 
 
 
