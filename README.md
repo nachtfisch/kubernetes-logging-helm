@@ -1,6 +1,8 @@
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/kubernetes-logging)](https://artifacthub.io/packages/search?repo=kubernetes-logging)
 # kubernetes-logging-helm
 
+!Current development is continued in main branch following Opensearch GA releases
+
 This helm chart deploys a scalable containerized logging stack with the main purpose of enabling log observability for kubernetes applications. The design supports both local development use cases such as minikube deployments up to a scaled production scenarios. The latter scenarios leverage kafka message broker, completely decoupling in this way,  the log generation and log indexing functions. 
 
 The helm chart supports elasticsearch in various configurations starting from a single node setup usable for local development, to a scaled multi nodes elasticsearch deployment battle proven in production scenarios. In the latter case there are 3 types of nodes (coordination, data and master) where each of those can be both horizontally and vertically scaled depending on the load and shards replication demands. 
